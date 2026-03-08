@@ -1,0 +1,767 @@
+body {
+    display: block;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#cake {
+    display: block;
+    position: relative;
+    margin-top: calc(-10em - 100px);
+    margin-bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Happy Birthday 文字样式 */
+.birthday-text {
+    position: fixed;
+    bottom: 450px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Pacifico', 'Brush Script MT', cursive;
+    font-size: 52px;
+    color: #FFD700;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    z-index: 10;
+    -webkit-animation: fadeInText 1s 7s ease-out forwards;
+    animation: fadeInText 1s 7s ease-out forwards;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+/* 蛋糕插牌样式 */
+.cake-topper {
+    position: fixed;
+    top: calc(50% - 50px);
+    left: 50%;
+    transform: translateX(calc(-50% + 110px));
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #8B4513;
+    font-family: 'KaiTi', '楷体', serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border: 2px solid #8B4513;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    -webkit-animation: fadeInTopper 1s 6.5s ease-out forwards;
+    animation: fadeInTopper 1s 6.5s ease-out forwards;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+/* 插牌的支撑棒 */
+.cake-topper::before {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(to bottom, #8B4513, transparent);
+}
+
+/* ============================================== Candle
+*/
+
+.bg {
+    width: 100%;
+    background: #FFB6D9;
+    background: -webkit-linear-gradient(top left, #FFB6D9 0%, #FFB6D9 100%);
+    background: linear-gradient(to bottom right, #FFB6D9 0%, #FFB6D9 100%);
+}
+
+.velas {
+    background: #ffffff;
+    border-radius: 20px;
+    position: relative;
+    top: 554px;
+    margin-left: 49.5%;
+    width: 10px;
+    height: 70px;
+    -webkit-transform: translateY(-600px);
+    -ms-transform: translateY(-600px);
+    transform: translateY(-600px);
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-animation: in 500ms 6s ease-out forwards;
+    animation: in 500ms 6s ease-out forwards;
+}
+
+.velas:after,
+.velas:before {
+    background: rgba(255, 0, 0, 0.4);
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4.44444444px;
+}
+
+.velas:after {
+    top: 25%;
+    left: 0;
+}
+
+.velas:before {
+    top: 45%;
+    left: 0;
+}
+
+
+/* ============================================== Fire
+*/
+
+.fuego {
+    border-radius: 100%;
+    position: absolute;
+    top: -40px;
+    left: 70%;
+    margin-left: -4.4px;
+    width: 13.33333334px;
+    height: 36px;
+}
+
+.fuego:nth-child(1) {
+    -webkit-animation: fuego 2s 6.5s infinite;
+    animation: fuego 2s 6.5s infinite;
+}
+
+.fuego:nth-child(2) {
+    -webkit-animation: fuego 1.5s 6.5s infinite;
+    animation: fuego 1.5s 6.5s infinite;
+}
+
+.fuego:nth-child(3) {
+    -webkit-animation: fuego 1s 6.5s infinite;
+    animation: fuego 1s 6.5s infinite;
+}
+
+.fuego:nth-child(4) {
+    -webkit-animation: fuego 0.5s 6.5s infinite;
+    animation: fuego 0.5s 6.5s infinite;
+}
+
+.fuego:nth-child(5) {
+    -webkit-animation: fuego 0.2s 6.5s infinite;
+    animation: fuego 0.2s 6.5s infinite;
+}
+
+
+/* ============================================== Animation Fire
+*/
+
+@-webkit-keyframes fuego {
+    0%,
+    100% {
+        background: rgba(254, 248, 97, 0.5);
+        -webkit-box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+        box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+        -webkit-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        background: rgba(255, 50, 0, 0.1);
+        -webkit-box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+        box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+        -webkit-transform: translateY(-20px) scale(0);
+        transform: translateY(-20px) scale(0);
+    }
+}
+
+@keyframes fuego {
+    0%,
+    100% {
+        background: rgba(254, 248, 97, 0.5);
+        -webkit-box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+        box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+        -webkit-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        background: rgba(255, 50, 0, 0.1);
+        -webkit-box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+        box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+        -webkit-transform: translateY(-20px) scale(0);
+        transform: translateY(-20px) scale(0);
+    }
+}
+
+@-webkit-keyframes in {
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes in {
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.come {
+    animation-delay: 0.4s;
+    animation: coming 2s;
+    opacity: 1;
+}
+
+@keyframes coming {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes coming {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.bg-bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bg-bubbles li {
+    position: absolute;
+    list-style: none;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.15);
+    bottom: -160px;
+    -webkit-animation: square 30s infinite;
+    animation: square 30s infinite;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+}
+
+.bg-bubbles li:nth-child(1) {
+    left: 10%;
+}
+
+.bg-bubbles li:nth-child(2) {
+    left: 20%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -webkit-animation-duration: 12s;
+    animation-duration: 12s;
+}
+
+.bg-bubbles li:nth-child(3) {
+    left: 30%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+    -webkit-animation-duration: 14s;
+    animation-duration: 14s;
+}
+
+.bg-bubbles li:nth-child(4) {
+    left: 60%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation-delay: 6s;
+    animation-delay: 6s;
+    -webkit-animation-duration: 19s;
+    animation-duration: 19s;
+}
+
+.bg-bubbles li:nth-child(5) {
+    left: 70%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    -webkit-animation-duration: 19s;
+    animation-duration: 19s;
+}
+
+.bg-bubbles li:nth-child(6) {
+    left: 80%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    -webkit-animation-duration: 19s;
+    animation-duration: 19s;
+}
+
+.bg-bubbles li:nth-child(7) {
+    left: 90%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s;
+    -webkit-animation-duration: 19s;
+    animation-duration: 19s;
+}
+
+.bg-bubbles li:nth-child(8) {
+    left: 100%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+    -webkit-animation-duration: 19s;
+    animation-duration: 19s;
+}
+
+
+/*.bg-bubbles li:nth-child(3) {
+  left: 25%;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+.bg-bubbles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation-duration: 22s;
+          animation-duration: 22s;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.bg-bubbles li:nth-child(5) {
+  left: 70%;
+}
+.bg-bubbles li:nth-child(6) {
+  left: 80%;
+  width: 120px;
+  height: 120px;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.bg-bubbles li:nth-child(7) {
+  left: 32%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+}
+.bg-bubbles li:nth-child(8) {
+  left: 55%;
+  width: 20px;
+  height: 20px;
+  -webkit-animation-delay: 15s;
+          animation-delay: 15s;
+  -webkit-animation-duration: 40s;
+          animation-duration: 40s;
+}
+.bg-bubbles li:nth-child(9) {
+  left: 25%;
+  width: 10px;
+  height: 10px;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  -webkit-animation-duration: 40s;
+          animation-duration: 40s;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.bg-bubbles li:nth-child(10) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
+}
+.bg-bubbles li:nth-child(11) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
+}
+.bg-bubbles li:nth-child(12) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
+}
+.bg-bubbles li:nth-child(13) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
+}
+.bg-bubbles li:nth-child(14) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
+}
+.bg-bubbles li:nth-child(15) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
+}
+.bg-bubbles li:nth-child(16) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}*/
+
+@-webkit-keyframes square {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(-900px) rotate(600deg);
+        transform: translateY(-900px) rotate(600deg);
+    }
+}
+
+@keyframes square {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(-900px) rotate(600deg);
+        transform: translateY(-900px) rotate(600deg);
+    }
+}
+
+.happy {
+    position: absolute;
+    left: 41%;
+    top: 49%;
+    opacity: 1;
+    animation: happybirthdays 10s;
+    animation-delay: 0s;
+}
+
+@keyframes happybirthdays {
+    0% {
+        position: absolute;
+        top: 45%;
+        opacity: 0;
+    }
+    70% {
+        position: absolute;
+        top: 45%;
+        opacity: 0;
+    }
+    100% {
+        position: absolute;
+        top: 49%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes happybirthdays {
+    0% {
+        position: absolute;
+        top: 45%;
+        opacity: 0;
+    }
+    70% {
+        position: absolute;
+        top: 45%;
+        opacity: 0;
+    }
+    100% {
+        position: absolute;
+        top: 49%;
+        opacity: 1;
+    }
+}
+
+.button-style1,
+.button-style2 {
+    position: absolute;
+    top: 70%;
+    opacity: 1;
+    z-index: 100;
+}
+
+.button-style1 {
+    position: absolute;
+    left: 43%;
+    animation: btn1 15s;
+}
+
+.button-style2 {
+    position: absolute;
+    left: 68%;
+    animation: btn2 15s;
+}
+
+@keyframes btn1 {
+    0% {
+        opacity: 0;
+        left: 43.5%;
+    }
+    70% {
+        opacity: 0;
+        left: 43.5%;
+    }
+    100% {
+        opacity: 1;
+        left: 43.5%;
+    }
+}
+
+@-webkit-keyframes btn1 {
+    0% {
+        opacity: 0;
+        left: 43.5%;
+    }
+    70% {
+        opacity: 0;
+        left: 43.5%;
+    }
+    100% {
+        opacity: 1;
+        left: 43.5%;
+    }
+}
+
+@keyframes btn2 {
+    0% {
+        opacity: 0;
+        left: 43.5%;
+    }
+    70% {
+        opacity: 0;
+        left: 43.5%;
+    }
+    100% {
+        opacity: 1;
+        left: 68%;
+    }
+}
+
+@-webkit-keyframes btn2 {
+    0% {
+        opacity: 0;
+        left: 43.5%;
+    }
+    70% {
+        opacity: 0;
+        left: 43.5%;
+    }
+    100% {
+        opacity: 1;
+        left: 68%;
+    }
+}
+
+.lk1,
+.lk2 {
+    text-decoration: none;
+    font-family: Microsoft YaHei;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.link1,
+.link2 {
+    width: 170px;
+    height: 60px;
+    border: 2px solid #fff;
+    -webkit-border: 1px solid #fff;
+    border-radius: 30px;
+    font-size: 23px;
+    text-align: center;
+    background: #FFB6D9;
+    transition: all 0.8s;
+}
+
+.link2 {
+    cursor: not-allowed;
+}
+
+.bt1,
+.bt2 {
+    position: relative;
+    top: 22%;
+    vertical-align: middle;
+}
+
+a.lk1:hover {
+    color: #FFB6D9;
+    transition: all 0.5s;
+}
+
+.link1:hover {
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0, 2);
+    border: 2px solid #BBB;
+    transition: all 0.8s;
+}
+
+a.lk2:hover {
+    color: #FFB6D9;
+    transition: all 0.5s;
+}
+
+.link2:hover {
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0, 2);
+    border: 2px solid #BBB;
+    transition: all 0.8s;
+}
+
+/* 喜欢/不喜欢按钮样式 */
+.action-buttons {
+    position: fixed;
+    bottom: 230px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 300px;
+    z-index: 1000;
+    animation: fadeInButtons 1s ease-in;
+}
+
+@keyframes fadeInButtons {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.btn-like,
+.btn-dislike {
+    padding: 15px 40px;
+    font-size: 20px;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    font-weight: 500;
+    border: 3px solid #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+
+.btn-like {
+    background: linear-gradient(135deg, rgba(255, 107, 129, 0.8), rgba(255, 142, 83, 0.8));
+}
+
+.btn-like:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 107, 129, 0.5);
+    background: linear-gradient(135deg, rgba(255, 107, 129, 1), rgba(255, 142, 83, 1));
+}
+
+.btn-dislike {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-dislike:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 滚动提示样式 */
+.scroll-hint {
+    position: fixed;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    z-index: 999;
+    animation: fadeInHint 1s ease;
+}
+
+.scroll-hint p {
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.arrow-down {
+    width: 15px;
+    height: 15px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    margin: 0 auto;
+    animation: arrowBounce 1.5s infinite;
+}
+
+@keyframes arrowBounce {
+    0% { 
+        transform: rotate(45deg) translate(0, 0); 
+        opacity: 0;
+    }
+    50% { 
+        opacity: 1; 
+    }
+    100% { 
+        transform: rotate(45deg) translate(10px, 10px); 
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInHint {
+    from { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0); 
+    }
+}
+
+/* fadeInText动画 - 用于Happy Birthday文字 */
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+/* fadeInTopper动画 - 用于插牌 */
+@keyframes fadeInTopper {
+    from {
+        opacity: 0;
+        transform: translateX(calc(-50% + 110px)) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(calc(-50% + 110px)) scale(1);
+    }
+}

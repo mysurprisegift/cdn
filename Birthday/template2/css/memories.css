@@ -1,0 +1,299 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-weight: 300; 
+}
+
+body { 
+    font-family: "Microsoft YaHei", sans-serif; 
+    color: white; 
+    overflow-x: hidden;
+    height: 100vh; 
+    width: 100vw; 
+}
+
+/* 背景渐变 */
+.wrapper {
+    background: #FFB6D9;
+    background: -webkit-linear-gradient(top left, #FFB6D9 0%, #FFA0C8 100%);
+    background: linear-gradient(to bottom right, #FFB6D9 0%, #FFA0C8 100%);
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+}
+
+/* 页面容器 */
+.page-section {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    display: block;
+    padding-top: 50px;
+    overflow-y: auto;
+}
+
+/* 时光页内容 */
+.timeline-content { 
+    width: 100%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 10;
+}
+
+.timeline-header { 
+    text-align: center; 
+    margin-bottom: 40px; 
+    margin-top: 20px;
+    animation: fadeIn 1s ease;
+}
+
+.timeline-header h2 { 
+    font-size: 36px; 
+    font-weight: normal; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.timeline-header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* 时间轴容器 */
+.timeline-box { 
+    position: relative; 
+    padding: 20px;
+}
+
+.timeline-box::before {
+    content: ''; 
+    position: absolute; 
+    left: 50%; 
+    top: 0; 
+    bottom: 0;
+    width: 2px; 
+    background: rgba(255,255,255,0.5); 
+    transform: translateX(-50%);
+}
+
+.timeline-box::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* 记忆卡片 */
+.memory-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px; 
+    padding: 20px; 
+    margin-bottom: 100px !important;
+    width: 45%; 
+    position: relative; 
+    color: #ee9ca7;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    animation: slideIn 0.8s ease forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* 第1张卡片 - 左侧 */
+.memory-card:nth-child(1) { 
+    float: left; 
+    clear: left;
+    margin-top: 0 !important;
+    animation-delay: 0.2s;
+}
+
+/* 第2张卡片 - 右侧，距离顶部100px */
+.memory-card:nth-child(2) { 
+    float: right; 
+    clear: right; 
+    margin-top: 100px !important;
+    animation-delay: 0.4s;
+}
+
+/* 第3张卡片 - 左侧，距离第1张100px */
+.memory-card:nth-child(3) { 
+    float: left; 
+    clear: left;
+    margin-top: 0 !important;
+    animation-delay: 0.6s;
+}
+
+/* 第4张卡片 - 右侧，距离第2张100px */
+.memory-card:nth-child(4) { 
+    float: right; 
+    clear: right; 
+    margin-top: 0 !important;
+    animation-delay: 0.8s;
+}
+
+/* 日期标签 */
+.date-tag {
+    position: absolute; 
+    top: -12px; 
+    background: #ee9ca7; 
+    color: white;
+    padding: 5px 15px; 
+    border-radius: 15px; 
+    font-size: 13px; 
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(238, 156, 167, 0.4);
+}
+
+/* 卡片内容 */
+.card-body img { 
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.timeline-box::after { 
+    content: ""; 
+    display: table; 
+    clear: both; 
+}
+
+/* 下一页按钮 */
+.next-page-btn {
+    text-align: center; 
+    margin: 40px auto; 
+    padding: 18px 40px;
+    background: rgba(255,255,255,0.3); 
+    border-radius: 30px;
+    cursor: pointer; 
+    width: 280px; 
+    transition: all 0.3s;
+    font-size: 16px;
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.next-page-btn:hover { 
+    background: rgba(255,255,255,0.5);
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.arrow-right {
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.next-page-btn:hover .arrow-right {
+    transform: translateX(5px);
+}
+
+/* 背景气泡动画 */
+.bg-bubbles { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
+    pointer-events: none;
+}
+
+.bg-bubbles li {
+    position: absolute; 
+    list-style: none; 
+    display: block;
+    width: 40px; 
+    height: 40px; 
+    background-color: rgba(255, 255, 255, 0.15);
+    bottom: -160px; 
+    animation: square 25s infinite; 
+    transition-timing-function: linear;
+}
+
+.bg-bubbles li:nth-child(1) { 
+    left: 10%; 
+}
+
+.bg-bubbles li:nth-child(2) { 
+    left: 20%; 
+    width: 80px; 
+    height: 80px; 
+    animation-delay: 2s; 
+    animation-duration: 17s; 
+}
+
+.bg-bubbles li:nth-child(3) { 
+    left: 25%; 
+    animation-delay: 4s; 
+}
+
+.bg-bubbles li:nth-child(4) { 
+    left: 40%; 
+    width: 60px; 
+    height: 60px; 
+    animation-duration: 22s; 
+    background-color: rgba(255, 255, 255, 0.25); 
+}
+
+.bg-bubbles li:nth-child(5) { 
+    left: 70%; 
+}
+
+@keyframes square {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-1000px) rotate(600deg); opacity: 0; }
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(-20px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0; 
+        transform: translateX(-30px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .timeline-box::before {
+        left: 30px;
+    }
+    
+    .memory-card {
+        width: 80%;
+        margin-left: 60px;
+        margin-bottom: 100px !important;
+        float: none !important;
+    }
+    
+    .memory-card:nth-child(even) {
+        margin-top: 100px !important;
+    }
+    
+    .timeline-header h2 {
+        font-size: 28px;
+    }
+}
