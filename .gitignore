@@ -1,0 +1,62 @@
+HELP.md
+.gradle
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.sts4-cache
+.settings
+.springBeans
+package-lock.json
+
+backend/### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+**/.vscode/
+
+
+### frontEnd ###
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+html-dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.fleet
+.eslintcache
+
+# Local env files
+!.env.example
+__pycache__
+.clinic
+client/rpa/build
+/docs/LogicFlow/maxkb/
+client/rpa/data/xianyu.db
+public/js/crypto-js.min.js
+# 混淆后的文件（通过 npm run build:html 生成）
+public/js/page/chunk-31317b2f1b38.js
+public/js/page/engine-chunk-819b8d77f427.js
+public/js/page/chunk-d5a8445e.js
